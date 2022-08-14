@@ -11,14 +11,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/devcastroitalo/MVCGen.git"
+    "url": "git+https://github.com/devcastroitalo/MVCGenPlus.git"
   },
   "author": "Italo Castro",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/devcastroitalo/MVCGen/issues"
+    "url": "https://github.com/devcastroitalo/MVCGenPlus/issues"
   },
-  "homepage": "https://github.com/devcastroitalo/MVCGen#readme",
+  "homepage": "https://github.com/devcastroitalo/MVCGenPlus#readme",
   "keywords": [
     "cli"
   ],
