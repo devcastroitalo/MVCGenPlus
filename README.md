@@ -1,9 +1,9 @@
 # MVCGenPlus (MVCGP)
 
 MVCGenPlug generates a complete MVC project structure.
-To install the package use the following command:
+To install the package use the following command as admin user:
 
-`npm install mvcgenplus`
+`npm install -g mvcgenplus`
 
 To generate a MVC project just type:
 
