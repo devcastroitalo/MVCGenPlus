@@ -1,6 +1,10 @@
 import { mkdir } from 'node:fs';
 import * as fs from 'node:fs';
 
+/*
+* Generate a dir based on path passed as argument
+* @param {String} dir new dir path
+*/
 function _createDir(dir) {
     mkdir(dir, { recursive: true }, (err) => {
         if (err) {
@@ -9,6 +13,10 @@ function _createDir(dir) {
     });
 }
 
+/*
+ * Return a html template to be written in html file
+ * @returns _ a string template with the deafult html file
+ */
 function _htmlTemplate() {
     return `
 <!DOCTYPE html>
@@ -26,6 +34,9 @@ function _htmlTemplate() {
     `;
 }
 
+/*
+ * Generate html file
+ */
 function _generateHtml() {
     fs.writeFile('index.html', _htmlTemplate(), (err) => {
         if (err) {
@@ -34,6 +45,9 @@ function _generateHtml() {
     });
 }
 
+/*
+ * Function that call the generators functions and create the MVC structure
+ */
 function generate() {
     // Generate css folder
     _createDir('assets/css');
