@@ -14,14 +14,14 @@ Then will be generated the follow folder structure
 ```
 index.html
 assets
-	|____css
-	|____js
-	     |____models
-	     |____views
-	     |____controllers
-	     |____services
-	     |____daos
-	     |____helpers
+     |____css
+     |____js
+          |____models
+          |____views
+          |____controllers
+          |____services
+          |____daos
+          |____helpers
 ```
 
 
