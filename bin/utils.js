@@ -1,5 +1,6 @@
 import { mkdir } from 'node:fs';
 import * as fs from 'node:fs';
+import { _htmlTemplate, _resetCssTemplate } from './templates.js';
 
 /*
 * Generate a dir based on path passed as argument
@@ -9,38 +10,18 @@ function _createDir(dir) {
     mkdir(dir, { recursive: true }, (err) => {
         if (err) {
             throw new Error(err);
+        } else {
+            console.log(`> ${dir} folder generated`);
         }
     });
 }
 
-/*
- * Return a html template to be written in html file
- * @returns _ a string template with the deafult html file
- */
-function _htmlTemplate() {
-    return `
-<!DOCTYPE html>
-
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <title></title>
-    </head>
-
-    <body>
-
-    </body>
-</html>
-    `;
-}
-
-/*
- * Generate html file
- */
-function _generateHtml() {
-    fs.writeFile('index.html', _htmlTemplate(), (err) => {
+function _generateFile(filePath, template) {
+    fs.writeFile(filePath, template, (err) => {
         if (err) {
             throw new Error(err);
+        } else {
+            console.log(`> ${filePath} generated`);
         }
     });
 }
@@ -51,7 +32,7 @@ function _generateHtml() {
 function generate() {
     // Generate css folder
     _createDir('assets/css');
-
+    
     // Generate js folder
     _createDir('assets/js/models');
     _createDir('assets/js/views');
@@ -60,8 +41,12 @@ function generate() {
     _createDir('assets/js/daos');
     _createDir('assets/js/helpers');
 
-    // Generate html standard file
-    _generateHtml();
+    // Generate CSS files
+    _generateFile('./assets/css/reset.css', _resetCssTemplate());
+    _generateFile('./assets/css/index.css', '');
+
+    // Generate HTML file
+    _generateFile('index.html', _htmlTemplate());
 }
 
 export { generate };

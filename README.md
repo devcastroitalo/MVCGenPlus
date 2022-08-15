@@ -15,6 +15,8 @@ Then will be generated the follow folder structure
 index.html
 assets
      |____css
+          |____reset.css
+          |____index.css
      |____js
           |____models
           |____views
