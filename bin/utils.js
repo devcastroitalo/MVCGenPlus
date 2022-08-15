@@ -1,19 +1,18 @@
-import { mkdir } from 'node:fs';
-import * as fs from 'node:fs';
+import { mkdir } from 'node:fs/promises';
+import * as fs from 'node:fs/promises';
 import { _htmlTemplate, _resetCssTemplate } from './templates.js';
 
 /**
  * Generate folder
  * @param {String} dir a folder path to be generated
  */
-function _createDir(dir) {
-    mkdir(dir, { recursive: true }, (err) => {
-        if (err) {
-            throw new Error(err);
-        } else {
-            console.log(`> ${dir} folder generated`);
-        }
-    });
+async function _createDir(dir) {
+    try {
+        await mkdir(dir, { recursive: true });      
+        console.log(`> ${dir} folder generated`);
+      } catch (err) {
+        console.error(err.message);
+      }
 }
 
 /**
@@ -21,37 +20,36 @@ function _createDir(dir) {
  * @param {String} filePath file path 
  * @param {String} template file content
  */
-function _generateFile(filePath, template) {
-    fs.writeFile(filePath, template, (err) => {
-        if (err) {
-            throw new Error(err);
-        } else {
-            console.log(`> ${filePath} generated`);
-        }
-    });
+async function _generateFile(filePath, template) {
+    try {
+        await fs.writeFile(filePath, template);
+        console.log(`> ${filePath} file generated`);
+    } catch(err) {
+        throw new Error(err);
+    }
 }
 
 /*
  * Function that call the generators functions and create the MVC structure
  */
-function generate() {
+async function generate() {
     // Generate css folder
-    _createDir('assets/css');
+    await _createDir('assets/css');
     
     // Generate js folder
-    _createDir('assets/js/models');
-    _createDir('assets/js/views');
-    _createDir('assets/js/controller');
-    _createDir('assets/js/services');
-    _createDir('assets/js/daos');
-    _createDir('assets/js/helpers');
+    await _createDir('assets/js/models');
+    await _createDir('assets/js/views');
+    await _createDir('assets/js/controller');
+    await _createDir('assets/js/services');
+    await _createDir('assets/js/daos');
+    await _createDir('assets/js/helpers');
 
     // Generate CSS files
-    _generateFile('./assets/css/reset.css', _resetCssTemplate());
-    _generateFile('./assets/css/index.css', '');
+    await _generateFile('assets/css/reset.css', _resetCssTemplate());
+    await _generateFile('assets/css/index.css', '');
 
     // Generate HTML file
-    _generateFile('index.html', _htmlTemplate());
+    await _generateFile('index.html', _htmlTemplate());
 }
 
 export { generate };
