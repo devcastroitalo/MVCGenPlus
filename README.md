@@ -9,7 +9,7 @@ To generate a MVC project just type:
 
 `gen`
 
-Then will be generated the follow folder structure
+Then will be generated the follow folder structure:
 
 ```
 index.html
@@ -26,6 +26,7 @@ assets
           |____helpers
 ```
 
+And also will initialize a empty repository.
 
 ## Contributing to MVCGenPlus
 To contribute to MVCGenPlus, follow these steps:
