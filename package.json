@@ -1,6 +1,6 @@
 {
   "name": "mvcgenplus",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "MVC folder structure generator",
   "main": "index.js",
   "bin": {
