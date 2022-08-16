@@ -26,7 +26,7 @@ assets
           |____helpers
 ```
 
-And also will initialize a empty repository.
+And also will initialize a empty git repository.
 
 ## Contributing to MVCGenPlus
 To contribute to MVCGenPlus, follow these steps:
